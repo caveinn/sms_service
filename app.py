@@ -8,7 +8,11 @@ PORT = 8000
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         print("getting")
-        return json.dumps("trial")
+        self.send_response(200, "OK")
+        self.end_headers()
+        response = json.dumps({"spample": "sample"})
+        self.wfile.write(bytes(response, 'utf8'))
+
 
 
 Handler = MyHandler
