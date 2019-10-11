@@ -1,5 +1,6 @@
 import http.server
 import socketserver
+import json
 
 PORT = 8000
 
@@ -7,7 +8,7 @@ PORT = 8000
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         print("getting")
-        return "gotten"
+        return json.dumps("trial")
 
 
 Handler = MyHandler
